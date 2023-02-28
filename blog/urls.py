@@ -17,12 +17,19 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from .urls_yasg import urlpatterns_yasg
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('main.urls'))
+    path('', include('main.urls')),
+    path('api/v1/', include('main.urls')),
+    path('api/v1/base-auth/', include('rest_framework.urls')),
+    path('api/v1/auth/', include('djoser.urls')),  # new
+    path('__debug__/', include('debug_toolbar.urls')),
 ]
+
+urlpatterns += urlpatterns_yasg
 
 if settings.DEBUG:
     urlpatterns += static(

@@ -45,3 +45,12 @@ class Category(models.Model):
 
     def get_absolute_url(self):
         return reverse('category', kwargs={'category_id': self.pk})
+
+class Likes(models.Model):
+    likes = models.ManyToManyField(User, blank=True, related_name='likes')
+
+    def __str__(self):
+        return self.likes
+
+    def get_absolute_url(self):
+        return reverse('category', kwargs={'category_id': self.pk})
