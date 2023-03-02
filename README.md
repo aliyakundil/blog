@@ -30,7 +30,11 @@ CRUD для Админа
 - По тегам 
 - По году выпуска 
 
-Rest Framework 
+Rest Framework;
+
+- CRUD 
+- Авторизация
+- Swagger
 
 Рекомендации:
 
